@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Свадебное приглашение</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Шрифты -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#D8EAD8; /* нежно-зелёный фон */
+  --card:#ffffff;
+  --accent:#8fae9a;
+  --accent-dark:#6f9480;
+  --text:#2f3a33;
+  --highlight:#7ea38d;
+  --heart:#C77F7F; /* пастельный бордовый */
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Montserrat',sans-serif;
+  color:var(--text);
+  background-color: var(--bg);
+}
+
+section{
+  max-width:800px;
+  margin:auto;
+  padding:90px 20px;
+  text-align:center;
+  opacity:0;
+  transform:translateY(30px);
+  transition:1s;
+}
+section.visible{opacity:1; transform:none;}
+
+h1.names{
+  font-family:'Great Vibes',cursive;
+  font-size:72px;
+  color:var(--accent-dark);
+  margin-bottom:0;
+}
+
+h1.date-main{
+  font-family:'Great Vibes',cursive;
+  font-size:48px;
+  color:var(--highlight);
+  margin-top:10px;
+}
+
+h2{font-weight:300; font-size:32px; margin-bottom:20px;}
+p{line-height:1.6; margin-bottom:15px;}
+
+.card{
+  background:var(--card);
+  border-radius:24px;
+  padding:35px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.08);
+  margin-top:30px;
+}
+
+.hero-photo{
+  width:220px; height:220px;
+  margin:30px auto;
+  border-radius:50%;
+  overflow:hidden;
+}
+.hero-photo img{width:100%;height:100%;object-fit:cover;}
+
+button{
+  background:var(--accent);
+  color:white;
+  border:none;
+  padding:14px 28px;
+  border-radius:30px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.palette{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  margin:20px 0;
+}
+.color{
+  width:40px; height:40px; border-radius:50%;
+}
+
+.map iframe{
+  width:100%;
+  height:300px;
+  border:0;
+  border-radius:18px;
+}
+
+.calendar-box{
+  background:white;
+  padding:30px;
+  border-radius:24px;
+  text-align:center;
+}
+
+.calendar-grid{
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  gap:8px;
+  margin-top:15px;
+}
+
+.calendar-grid div{
+  padding:10px 0;
+}
+
+.calendar-date{
+  font-size:28px;
+  font-weight:bold;
+}
+
+.calendar-heart{
+  color:var(--highlight);
+  font-size:32px;
+  font-weight:bold;
+  animation:beat 1.5s infinite;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.5);}
+}
+
+.countdown{
+  font-size:48px;
+  font-weight:bold;
+  color:var(--accent-dark);
+  margin-top:20px;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:12px;
+  border:1px solid #ccc;
+}
+textarea{min-height:90px}
+
+#hearts{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+}
+.heart-float{
+  position:absolute;
+  color: var(--heart); /* цвет сердечек */
+  animation:float 6s linear forwards;
+}
+@keyframes float{
+  from{transform:translateY(100vh);opacity:0}
+  to{transform:translateY(-10vh);opacity:1}
+}
+</style>
+</head>
+<body>
+<div id="hearts"></div>
+<!-- ГЛАВНАЯ -->
+<section>
+  <h1 class="names">Никита & Анна</h1>
+  <h1 class="date-main">8 августа 2026</h1>
+
+  <div class="hero-photo">
+    <img src="./photo.jpg" alt="Фото пары">
+  </div>
+
+  <p>
+    С огромной радостью приглашаем вас разделить с нами<br>
+    самый тёплый и важный день нашей жизни 🤍
+  </p>
+
+  <button id="musicBtn">Включить музыку ♫</button>
+</section>
+
+<!-- КАЛЕНДАРЬ -->
+<section>
+  <h2>Наша дата</h2>
+  <div class="calendar-box">
+    <strong>Август 2026</strong>
+    <div class="calendar-grid">
+      <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div class="calendar-date">1</div>
+      <div class="calendar-date">2</div><div class="calendar-date">3</div><div class="calendar-date">4</div><div class="calendar-date">5</div><div class="calendar-date">6</div><div class="calendar-date">7</div>
+      <div class="calendar-date calendar-heart">8 ♥</div>
+    </div>
+  </div>
+</section>
+
+<!-- МЕСТО -->
+<section>
+  <h2>Место проведения</h2>
+  <p>г. Михайловка, ул. КИМ, 2, Ресторан «Wedding Hall»</p>
+  <div class="map">
+    <iframe src="https://yandex.ru/map-widget/v1/?ll=43.249362%2C50.071101&amp;z=17&amp;mode=search&amp;text=ул.%20КИМ%202%2C%20Михайловка%2C%20Волгоградская%20обл."
+            width="100%" height="300" frameborder="0"></iframe>
+  </div>
+  <p><em>Пожалуйста, приезжайте заранее 🤍</em></p>
+</section>
+
+<!-- ТАЙМИНГ -->
+<section>
+  <h2>Тайминг вечера</h2>
+  <div class="card">
+    <p>17:00 — Сбор гостей</p>
+    <p>17:30 — Церемония</p>
+    <p>18:30 — Ужин</p>
+    <p>19:30 — Танцы и поздравления</p>
+    <p>22:00 — Завершение вечера</p>
+  </div>
+</section>
+
+<!-- ДРЕСС-КОД -->
+<section>
+  <h2>Дресс-код</h2>
+  <p><strong>Будем рады, если вы поддержите стиль 🤍</strong></p>
+  <div class="palette">
+    <div class="color" style="background:#A8D5BA"></div> <!-- пастельный зеленый -->
+    <div class="color" style="background:#B5B36B"></div> <!-- пастельный оливковый -->
+    <div class="color" style="background:#C77F7F"></div> <!-- пастельный бордовый -->
+    <div class="color" style="background:#F0E2D0"></div> <!-- пастельный бежевый -->
+  </div>
+  <p>Пастельно-зелёные, оливковые, бордовые и бежевые оттенки</p>
+</section>
+
+<!-- ОБРАТНЫЙ ОТСЧЁТ -->
+<section>
+  <h2>До свадьбы осталось</h2>
+  <div class="countdown" id="timer"></div>
+</section>
+
+<!-- ОПРОС -->
+<section>
+  <h2>Небольшой опрос</h2>
+  <form id="rsvp">
+    <input placeholder="Ваше имя" required>
+    <select required>
+      <option value="">Вы придёте?</option>
+      <option>Да</option>
+      <option>Нет</option>
+      <option>Пока не знаю</option>
+    </select>
+    <textarea placeholder="Что бы вы хотели видеть на свадьбе?"></textarea>
+    <button>Отправить</button>
+  </form>
+</section>
+
+<audio id="music" loop>
+  <source src="./music.mp3" type="audio/mpeg">
+</audio><script>
+// Анимация секций при скролле
+const obs = new IntersectionObserver(e=>{
+  e.forEach(x=>x.isIntersecting && x.target.classList.add('visible'));
+},{threshold:0.2});
+document.querySelectorAll('section').forEach(s=>obs.observe(s));
+
+// Музыка
+let play=false;
+musicBtn.onclick = ()=>{
+  play ? music.pause() : music.play();
+  play = !play;
+  musicBtn.textContent = play ? 'Выключить музыку ❚❚' : 'Включить музыку ♫';
+};
+
+// Обратный отсчёт с анимацией
+function cd(){
+  const d = new Date("2026-08-08") - new Date();
+  const days = Math.floor(d/86400000);
+  const timerEl = document.getElementById('timer');
+  timerEl.textContent = days + " дней";
+  timerEl.style.transform = 'scale(1.2)';
+  setTimeout(()=>timerEl.style.transform='scale(1)',300);
+}
+setInterval(cd,1000); cd();
+
+// Плавающие сердца пастельного бордового
+setInterval(()=>{
+  const h=document.createElement('div');
+  h.className='heart-float';
+  h.textContent='♥';
+  h.style.left=Math.random()*100+'%';
+  document.getElementById('hearts').appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},500);
+
+// Форма RSVP
+rsvp.onsubmit = e=>{
+  e.preventDefault();
+  alert('Спасибо! 🤍');
+  e.target.reset();
+};
+</script>
+</body>
+</html>
