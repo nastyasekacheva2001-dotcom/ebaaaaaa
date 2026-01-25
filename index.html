@@ -10,13 +10,13 @@
 
 <style>
 :root{
-  --bg:#D8EAD8; /* нежно-зелёный фон */
+  --bg:#F5EBDD; /* пастельный бежевый фон */
   --card:#ffffff;
   --accent:#8fae9a;
   --accent-dark:#6f9480;
   --text:#2f3a33;
   --highlight:#7ea38d;
-  --heart:#C77F7F; /* пастельный бордовый */
+  --heart:#C77F7F; /* цвет плавающих сердечек */
 }
 
 *{box-sizing:border-box;}
@@ -64,10 +64,11 @@ p{line-height:1.6; margin-bottom:15px;}
   margin-top:30px;
 }
 
+/* Фото квадратное */
 .hero-photo{
-  width:220px; height:220px;
+  width:220px;
+  height:220px;
   margin:30px auto;
-  border-radius:50%;
   overflow:hidden;
 }
 .hero-photo img{width:100%;height:100%;object-fit:cover;}
@@ -115,6 +116,7 @@ button{
 
 .calendar-grid div{
   padding:10px 0;
+  position:relative;
 }
 
 .calendar-date{
@@ -123,15 +125,16 @@ button{
 }
 
 .calendar-heart{
-  color:var(--highlight);
-  font-size:32px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:40px; height:40px;
+  background:#F7C1C1; /* светлый фон сердца */
+  color:white;
+  border-radius:50%;
   font-weight:bold;
-  animation:beat 1.5s infinite;
-}
-
-@keyframes beat{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.5);}
+  font-size:20px;
+  margin:auto;
 }
 
 .countdown{
@@ -157,7 +160,7 @@ textarea{min-height:90px}
 }
 .heart-float{
   position:absolute;
-  color: var(--heart); /* цвет сердечек */
+  color: var(--heart); /* пастельный бордовый */
   animation:float 6s linear forwards;
 }
 @keyframes float{
@@ -167,14 +170,13 @@ textarea{min-height:90px}
 </style>
 </head>
 <body>
-<div id="hearts"></div>
-<!-- ГЛАВНАЯ -->
+<div id="hearts"></div><!-- ГЛАВНАЯ -->
 <section>
-  <h1 class="names">Никита & Анна</h1>
+  <h1 class="names">Анна & Дмитрий</h1>
   <h1 class="date-main">8 августа 2026</h1>
 
   <div class="hero-photo">
-    <img src="./photo.jpg" alt="Фото пары">
+    <img src="photo.jpg" alt="Фото пары">
   </div>
 
   <p>
@@ -192,9 +194,9 @@ textarea{min-height:90px}
     <strong>Август 2026</strong>
     <div class="calendar-grid">
       <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div class="calendar-date">1</div>
-      <div class="calendar-date">2</div><div class="calendar-date">3</div><div class="calendar-date">4</div><div class="calendar-date">5</div><div class="calendar-date">6</div><div class="calendar-date">7</div>
-      <div class="calendar-date calendar-heart">8 ♥</div>
+      <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div>
+      <div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+      <div class="calendar-heart">8</div>
     </div>
   </div>
 </section>
@@ -258,7 +260,7 @@ textarea{min-height:90px}
 </section>
 
 <audio id="music" loop>
-  <source src="./music.mp3" type="audio/mpeg">
+  <source src="music.mp3" type="audio/mpeg">
 </audio><script>
 // Анимация секций при скролле
 const obs = new IntersectionObserver(e=>{
@@ -274,18 +276,16 @@ musicBtn.onclick = ()=>{
   musicBtn.textContent = play ? 'Выключить музыку ❚❚' : 'Включить музыку ♫';
 };
 
-// Обратный отсчёт с анимацией
+// Обратный отсчёт
 function cd(){
   const d = new Date("2026-08-08") - new Date();
   const days = Math.floor(d/86400000);
   const timerEl = document.getElementById('timer');
   timerEl.textContent = days + " дней";
-  timerEl.style.transform = 'scale(1.2)';
-  setTimeout(()=>timerEl.style.transform='scale(1)',300);
 }
 setInterval(cd,1000); cd();
 
-// Плавающие сердца пастельного бордового
+// Плавающие сердечки пастельного бордового
 setInterval(()=>{
   const h=document.createElement('div');
   h.className='heart-float';
