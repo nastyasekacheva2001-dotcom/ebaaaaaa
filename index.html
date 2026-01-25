@@ -16,7 +16,7 @@
   --accent-dark:#6f9480;
   --text:#2f3a33;
   --highlight:#7ea38d;
-  --heart:#C77F7F; /* цвет плавающих сердечек */
+  --heart:#C77F7F; /* пастельный бордовый */
 }
 
 *{box-sizing:border-box;}
@@ -64,14 +64,18 @@ p{line-height:1.6; margin-bottom:15px;}
   margin-top:30px;
 }
 
-/* Фото квадратное */
+/* Фото квадратное и увеличенное */
 .hero-photo{
   width:350px;
   height:350px;
   margin:40px auto;
   overflow:hidden;
 }
-.hero-photo img{width:100%;height:100%;object-fit:cover;}
+.hero-photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
 button{
   background:var(--accent);
@@ -124,16 +128,28 @@ button{
   font-weight:bold;
 }
 
+/* Сердце для даты свадьбы */
 .calendar-heart{
   display:flex;
   justify-content:center;
   align-items:center;
-  width:40px; height:40px;
-  background:#F7C1C1; /* светлый фон сердца */
+  width:50px; height:50px;
+  background: #F7C1C1;
+  clip-path: polygon(
+    50% 0%, 
+    61% 15%, 
+    75% 15%, 
+    85% 25%, 
+    85% 38%, 
+    50% 80%, 
+    15% 38%, 
+    15% 25%, 
+    25% 15%, 
+    39% 15%
+  ); /* форма сердца */
   color:white;
-  border-radius:50%;
   font-weight:bold;
-  font-size:20px;
+  font-size:24px;
   margin:auto;
 }
 
@@ -160,7 +176,7 @@ textarea{min-height:90px}
 }
 .heart-float{
   position:absolute;
-  color: var(--heart); /* пастельный бордовый */
+  color: var(--heart);
   animation:float 6s linear forwards;
 }
 @keyframes float{
@@ -196,7 +212,11 @@ textarea{min-height:90px}
       <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
       <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div>
       <div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
-      <div class="calendar-heart">8</div>
+      <div class="calendar-heart">8</div> <!-- дата свадьбы в форме сердца -->
+      <div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+      <div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div>
+      <div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
+      <div>30</div><div>31</div>
     </div>
   </div>
 </section>
@@ -262,28 +282,39 @@ textarea{min-height:90px}
 <audio id="music" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio><script>
-// Анимация секций при скролле
+// Анимация появления секций при скролле
 const obs = new IntersectionObserver(e=>{
-  e.forEach(x=>x.isIntersecting && x.target.classList.add('visible'));
+  e.forEach(x=>{
+    if(x.isIntersecting) x.target.classList.add('visible');
+  });
 },{threshold:0.2});
 document.querySelectorAll('section').forEach(s=>obs.observe(s));
 
 // Музыка
 let play=false;
+const musicBtn = document.getElementById('musicBtn');
+const music = document.getElementById('music');
+
 musicBtn.onclick = ()=>{
   play ? music.pause() : music.play();
   play = !play;
   musicBtn.textContent = play ? 'Выключить музыку ❚❚' : 'Включить музыку ♫';
 };
 
-// Обратный отсчёт
-function cd(){
-  const d = new Date("2026-08-08") - new Date();
-  const days = Math.floor(d/86400000);
-  const timerEl = document.getElementById('timer');
-  timerEl.textContent = days + " дней";
+// Обратный отсчёт до свадьбы
+function countdown(){
+  const now = new Date();
+  const wedding = new Date("2026-08-08T00:00:00");
+  const diff = wedding - now;
+  const days = Math.floor(diff/86400000);
+  const hours = Math.floor((diff%86400000)/3600000);
+  const minutes = Math.floor((diff%3600000)/60000);
+  const seconds = Math.floor((diff%60000)/1000);
+  document.getElementById('timer').textContent = 
+      days + " д " + hours + " ч " + minutes + " м " + seconds + " с";
 }
-setInterval(cd,1000); cd();
+setInterval(countdown,1000);
+countdown();
 
 // Плавающие сердечки пастельного бордового
 setInterval(()=>{
@@ -296,12 +327,11 @@ setInterval(()=>{
 },500);
 
 // Форма RSVP
-rsvp.onsubmit = e=>{
+document.getElementById('rsvp').onsubmit = e=>{
   e.preventDefault();
-  alert('Спасибо! 🤍');
+  alert('Спасибо! 🤍 Ваш ответ отправлен.');
   e.target.reset();
 };
 </script>
 </body>
 </html>
-
