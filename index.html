@@ -135,35 +135,57 @@ button:hover{
 /* Сердце для даты свадьбы с цифрой внутри */
 .calendar-heart {
   position: relative;
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 58px;
   margin: auto;
   animation: pulse 1.4s infinite;
 }
 
-.calendar-heart::before,
+/* левая половина сердца */
+.calendar-heart::before {
+  content: "";
+  position: absolute;
+  left: 32px;
+  top: 0;
+  width: 32px;
+  height: 50px;
+  background: #c85b5b; /* красно-бордовый */
+  border-radius: 32px 32px 0 0;
+}
+
+/* правая половина сердца */
 .calendar-heart::after {
   content: "";
   position: absolute;
-  width: 35px;
-  height: 55px;
-  background: #c46b6b; /* пастельно-бордовый */
-  border-radius: 35px 35px 0 0;
-  top: 0;
-}
-
-.calendar-heart::before {
-  left: 35px;
-  transform: rotate(-45deg);
-  transform-origin: 0 100%;
-}
-
-.calendar-heart::after {
   left: 0;
-  transform: rotate(45deg);
-  transform-origin: 100% 100%;
+  top: 0;
+  width: 32px;
+  height: 50px;
+  background: #c85b5b;
+  border-radius: 32px 32px 0 0;
 }
 
+/* нижняя часть */
+.calendar-heart {
+  background: transparent;
+}
+
+.calendar-heart::before,
+.calendar-heart::after {
+  transform: none;
+}
+
+.calendar-heart span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: bold;
+  color: white;
+  z-index: 2;
+}
 /* ЦИФРА */
 .calendar-heart span {
   position: absolute;
@@ -295,7 +317,7 @@ textarea{min-height:90px}
   <h2>Дресс-код</h2>
   <p><strong>Будем рады, если вы поддержите стиль 🤍</strong></p>
   <div class="palette">
-    <div class="color" style="background:#A8D5BA"></div> <!-- пастельный зеленый -->
+    <div class="color" style="background:#4CAF50"></div>
     <div class="color" style="background:#B5B36B"></div> <!-- пастельный оливковый -->
     <div class="color" style="background:#C77F7F"></div> <!-- пастельный бордовый -->
     <div class="color" style="background:#F0E2D0"></div> <!-- пастельный бежевый -->
@@ -386,4 +408,5 @@ document.getElementById('rsvp').onsubmit = e=>{
 </script>
 </body>
 </html>
+
 
