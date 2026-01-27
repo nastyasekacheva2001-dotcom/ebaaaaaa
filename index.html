@@ -135,64 +135,42 @@ button:hover{
 /* Сердце для даты свадьбы с цифрой внутри */
 .calendar-heart {
   position: relative;
-  width: 64px;
-  height: 58px;
+  width: 60px;
+  height: 60px;
   margin: auto;
-  animation: pulse 1.4s infinite;
-}
-
-/* левая половина сердца */
-.calendar-heart::before {
-  content: "";
-  position: absolute;
-  left: 32px;
-  top: 0;
-  width: 32px;
-  height: 50px;
-  background: #c85b5b; /* красно-бордовый */
-  border-radius: 32px 32px 0 0;
-}
-
-/* правая половина сердца */
-.calendar-heart::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 32px;
-  height: 50px;
   background: #c85b5b;
-  border-radius: 32px 32px 0 0;
-}
-
-/* нижняя часть */
-.calendar-heart {
-  background: transparent;
+  transform: rotate(-45deg);
+  animation: pulse 1.4s infinite;
 }
 
 .calendar-heart::before,
 .calendar-heart::after {
-  transform: none;
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #c85b5b;
+  border-radius: 50%;
 }
 
-.calendar-heart span {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 26px;
-  font-weight: bold;
-  color: white;
-  z-index: 2;
+.calendar-heart::before {
+  top: -30px;
+  left: 0;
 }
-/* ЦИФРА */
+
+.calendar-heart::after {
+  left: 30px;
+  top: 0;
+}
+
+/* ЦИФРА ВНУТРИ */
 .calendar-heart span {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  transform: rotate(45deg); /* ← ВАЖНО */
   font-size: 26px;
   font-weight: bold;
   color: white;
@@ -277,17 +255,50 @@ textarea{min-height:90px}
   <div class="calendar-box">
     <strong>Август 2026</strong>
     <div class="calendar-grid">
-      <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
-      <div></div><div></div><div></div><div></div><div></div><div></div><div>1</div>
-      <div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
-      <div class="calendar-heart"><span>8</span></div> <!-- дата свадьбы в сердце -->
-      <div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
-      <div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div>
-      <div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
-      <div>30</div><div>31</div>
-    </div>
-  </div>
-</section>
+  <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+
+  <!-- пустые дни перед 1 августа -->
+  <div></div><div></div><div></div><div></div><div></div>
+
+  <!-- 1 августа — СУББОТА -->
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+  <div>5</div>
+  <div>6</div>
+  <div>7</div>
+
+  <!-- 8 августа — СУББОТА ❤️ -->
+  <div class="calendar-heart"><span>8</span></div>
+
+  <div>9</div>
+  <div>10</div>
+  <div>11</div>
+  <div>12</div>
+  <div>13</div>
+  <div>14</div>
+  <div>15</div>
+
+  <div>16</div>
+  <div>17</div>
+  <div>18</div>
+  <div>19</div>
+  <div>20</div>
+  <div>21</div>
+  <div>22</div>
+
+  <div>23</div>
+  <div>24</div>
+  <div>25</div>
+  <div>26</div>
+  <div>27</div>
+  <div>28</div>
+  <div>29</div>
+
+  <div>30</div>
+  <div>31</div>
+</div>
 
 <!-- МЕСТО -->
 <section>
@@ -317,7 +328,7 @@ textarea{min-height:90px}
   <h2>Дресс-код</h2>
   <p><strong>Будем рады, если вы поддержите стиль 🤍</strong></p>
   <div class="palette">
-    <div class="color" style="background:#4CAF50"></div>
+    <div class="color" style="background:#2F5D50"></div>
     <div class="color" style="background:#B5B36B"></div> <!-- пастельный оливковый -->
     <div class="color" style="background:#C77F7F"></div> <!-- пастельный бордовый -->
     <div class="color" style="background:#F0E2D0"></div> <!-- пастельный бежевый -->
@@ -408,5 +419,6 @@ document.getElementById('rsvp').onsubmit = e=>{
 </script>
 </body>
 </html>
+
 
 
