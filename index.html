@@ -122,7 +122,7 @@ button{
 <div id="hearts"></div>
 
 <section>
-  <h1 class="names">Анна & Дмитрий</h1>
+  <h1 class="names">Никита & Анна</h1>
   <div class="date-main">8 августа 2026</div>
 
   <div class="hero-photo">
@@ -193,36 +193,8 @@ button{
   <div class="countdown" id="timer"></div>
 </section>
 
-<!-- АУДИО -->
 <audio id="music" src="music.mp3" preload="auto"></audio><script>
-const music = document.getElementById("music");
-
-function playMusic(){
-  music.play();
-}
-
-/* ОБРАТНЫЙ ОТСЧЁТ */
-function countdown(){
-  const now = new Date();
-  const wedding = new Date("2026-08-08T00:00:00");
-  const diff = wedding - now;
-
-  if(diff > 0){
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor(diff % 86400000 / 3600000);
-    const m = Math.floor(diff % 3600000 / 60000);
-    const s = Math.floor(diff % 60000 / 1000);
-    document.getElementById("timer").textContent =
-      ${d} дней ${h} ч ${m} м ${s} с;
-  } else {
-    document.getElementById("timer").textContent = "Сегодня свадьба 🤍";
-  }
-}
-
-setInterval(countdown, 1000);
-countdown();
-<script>
-/* ===== МУЗЫКА (РАБОТАЕТ НА iPHONE) ===== */
+/* ===== МУЗЫКА ===== */
 function playMusic() {
   const music = document.getElementById("music");
   if (music) {
@@ -295,4 +267,3 @@ window.addEventListener("load", () => {
 
 </body>
 </html>
-
