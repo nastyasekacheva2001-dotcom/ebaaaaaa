@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Приглашение на свадьбу</title>
+<title>Свадебное приглашение</title>
+
+<!-- Шрифт для имён -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 body{
@@ -18,29 +21,28 @@ section{
   text-align:center;
 }
 
-h1,h2,h3{
-  margin-bottom:20px;
-}
-
 .names{
-  font-size:42px;
+  font-family:'Great Vibes', cursive;
+  font-size:56px;
+  color:#2f4f3e;
+  margin-bottom:10px;
 }
 
 .date-main{
-  font-size:28px;
+  font-size:32px;
   margin-bottom:30px;
 }
 
 .hero-photo img{
-  width:260px;
-  height:260px;
+  width:300px;
+  height:300px;
   object-fit:cover;
-  border-radius:12px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
+  border-radius:14px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.2);
 }
 
 button{
-  padding:12px 24px;
+  padding:12px 26px;
   border:none;
   border-radius:30px;
   background:#6b8f7d;
@@ -50,75 +52,53 @@ button{
 }
 
 .calendar-box{
-  background:rgba(255,255,255,0.6);
-  padding:20px;
+  background:rgba(255,255,255,0.65);
+  padding:24px;
   border-radius:24px;
-  max-width:360px;
+  max-width:380px;
   margin:auto;
 }
 
 .calendar-grid{
   display:grid;
   grid-template-columns:repeat(7,1fr);
-  gap:8px;
-  margin-top:10px;
+  gap:10px;
+  margin-top:15px;
 }
 
 .calendar-grid div{
-  padding:8px;
   font-size:14px;
 }
 
-.calendar-heart{
-  position:relative;
-  width:56px;
-  height:56px;
-  margin:auto;
-  background:#c85b5b;
-  transform:rotate(-45deg);
-  animation:pulse 1.4s infinite;
-  z-index:1;
+.calendar-heart svg{
+  width:72px;
+  height:66px;
 }
 
-.calendar-heart::before,
-.calendar-heart::after{
-  content:"";
-  position:absolute;
-  width:56px;
-  height:56px;
-  background:#c85b5b;
-  border-radius:50%;
-  z-index:1;
+.calendar-heart path{
+  fill:#b14b4b;
 }
 
-.calendar-heart::before{
-  top:-28px;
-  left:0;
-}
-
-.calendar-heart::after{
-  left:28px;
-  top:0;
-}
-
-.calendar-heart span{
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transform:rotate(45deg);
-  font-size:24px;
+.calendar-heart text{
+  fill:white;
+  font-size:28px;
   font-weight:bold;
-  color:white;
-  z-index:5;
-  pointer-events:none;
+  text-anchor:middle;
+  dominant-baseline:middle;
 }
 
-@keyframes pulse{
-  0%{transform:rotate(-45deg) scale(1)}
-  50%{transform:rotate(-45deg) scale(1.15)}
-  100%{transform:rotate(-45deg) scale(1)}
+.map-container iframe{
+  width:100%;
+  max-width:600px;
+  height:320px;
+  border:0;
+  border-radius:18px;
+}
+
+.timing-list{
+  max-width:420px;
+  margin:auto;
+  text-align:left;
 }
 
 .palette{
@@ -134,7 +114,7 @@ button{
 }
 
 .countdown{
-  font-size:24px;
+  font-size:26px;
   font-weight:bold;
 }
 
@@ -146,7 +126,7 @@ button{
 
 .heart-float{
   position:absolute;
-  color:#c85b5b;
+  color:#b14b4b;
   animation:floatUp 6s linear forwards;
 }
 
@@ -154,53 +134,45 @@ button{
   from{transform:translateY(0);opacity:0}
   to{transform:translateY(-120vh);opacity:1}
 }
-
-.map-container iframe{
-  width:100%;
-  max-width:600px;
-  height:300px;
-  border:0;
-  border-radius:16px;
-}
-
-.timing-list{
-  max-width:400px;
-  margin:auto;
-  text-align:left;
-}
 </style>
 </head><body>
 
 <div id="hearts"></div>
 
-<!-- Главная секция -->
 <section>
-  <h1 class="names">Анна & Никита</h1>
-  <h1 class="date-main">8 августа 2026</h1>
+  <h1 class="names">Анна & Дмитрий</h1>
+  <div class="date-main">8 августа 2026</div>
 
   <div class="hero-photo">
     <img src="photo.jpg" alt="Фото">
   </div>
 
-  <p>С радостью приглашаем вас разделить с нами этот особенный день 🤍</p>
+  <p style="font-size:18px;line-height:1.6;">
+    С огромной радостью приглашаем вас разделить с нами  
+    один из самых тёплых и счастливых дней нашей жизни 🤍
+  </p>
+
   <button id="musicBtn">Включить музыку ♫</button>
 </section>
 
-<!-- Календарь -->
 <section>
   <h2>Август 2026</h2>
   <div class="calendar-box">
     <div class="calendar-grid">
       <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
 
-      <!-- пустые дни перед 1 августа -->
       <div></div><div></div><div></div><div></div><div></div>
 
       <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
 
-      <div class="calendar-heart"><span>8</span></div>
-      <div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+      <div class="calendar-heart">
+        <svg viewBox="0 0 100 90">
+          <path d="M50 80 L10 40 A20 20 0 0 1 50 20 A20 20 0 0 1 90 40 Z"/>
+          <text x="50" y="50">8</text>
+        </svg>
+      </div>
 
+      <div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
       <div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div>
       <div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
       <div>30</div><div>31</div>
@@ -208,58 +180,59 @@ button{
   </div>
 </section>
 
-<!-- Место проведения -->
 <section>
   <h2>Место проведения</h2>
-  <p>Волгоградская область, г. Михайловка, ул. Ким, д.2<br>Ресторан «Wedding hall»</p>
-  <p><strong>Пожалуйста приезжайте заранее</strong></p>
+  <p>
+    Волгоградская область, г. Михайловка, ул. Ким, д.2  
+    <br>Ресторан «Wedding Hall»
+  </p>
+  <p><strong>Пожалуйста, приезжайте заранее 🤍</strong></p>
+
   <div class="map-container">
-    <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aa2b3c4d5e6f7&source=constructor" allowfullscreen></iframe>
+    <iframe
+      src="https://yandex.ru/map-widget/v1/?ll=43.2406%2C50.0702&z=16&mode=search&text=Wedding%20Hall%20Михайловка"
+      allowfullscreen>
+    </iframe>
   </div>
 </section>
 
-<!-- Тайминг вечера -->
 <section>
   <h2>Тайминг вечера</h2>
   <div class="timing-list">
-    <p><strong>17:00</strong> – Сбор гостей</p>
-    <p><strong>18:00</strong> – Церемония</p>
-    <p><strong>19:00</strong> – Фуршет</p>
-    <p><strong>20:30</strong> – Тосты и игры</p>
-    <p><strong>22:00</strong> – Танцы и веселье</p>
+    <p><strong>17:00</strong> — Сбор гостей</p>
+    <p><strong>18:00</strong> — Церемония</p>
+    <p><strong>19:00</strong> — Праздничный ужин</p>
+    <p><strong>20:30</strong> — Тосты и развлечения</p>
+    <p><strong>22:00</strong> — Танцы</p>
   </div>
 </section>
 
-<!-- Дресс-код -->
 <section>
   <h2>Дресс-код</h2>
   <p><strong>Будем рады, если поддержите стиль 🤍</strong></p>
   <div class="palette">
-    <div class="color" style="background:#2F5D50"></div>
-    <div class="color" style="background:#6B7F5A"></div>
-    <div class="color" style="background:#C77F7F"></div>
-    <div class="color" style="background:#F0E2D0"></div>
+    <div class="color" style="background:#1f3d2b"></div>
+    <div class="color" style="background:#6b7f5a"></div>
+    <div class="color" style="background:#7a3b3b"></div>
+    <div class="color" style="background:#f0e2d0"></div>
   </div>
 </section>
 
-<!-- Обратный отсчёт -->
 <section>
   <h2>До свадьбы осталось</h2>
   <div class="countdown" id="timer"></div>
 </section>
 
 <audio id="music" src="music.mp3" loop></audio><script>
-// Музыка
 let play=false;
 const musicBtn=document.getElementById("musicBtn");
 const music=document.getElementById("music");
 
 musicBtn.onclick=()=>{
   play ? music.pause() : music.play();
-  play = !play;
+  play=!play;
 };
 
-// Плавающие сердечки
 setInterval(()=>{
   const h=document.createElement("div");
   h.className="heart-float";
@@ -271,20 +244,19 @@ setInterval(()=>{
   setTimeout(()=>h.remove(),6000);
 },400);
 
-// Таймер до свадьбы
 function countdown(){
   const now=new Date();
   const wedding=new Date("2026-08-08T00:00:00");
   const diff=wedding-now;
   if(diff>0){
-    const days=Math.floor(diff/86400000);
-    const hours=Math.floor((diff%86400000)/3600000);
-    const minutes=Math.floor((diff%3600000)/60000);
-    const seconds=Math.floor((diff%60000)/1000);
+    const d=Math.floor(diff/86400000);
+    const h=Math.floor(diff%86400000/3600000);
+    const m=Math.floor(diff%3600000/60000);
+    const s=Math.floor(diff%60000/1000);
     document.getElementById("timer").textContent=
-      days+" дней "+hours+" ч "+minutes+" м "+seconds+" с";
+      ${d} дней ${h} ч ${m} м ${s} с;
   }else{
-    document.getElementById("timer").textContent="Свадьба сегодня!";
+    document.getElementById("timer").textContent="Сегодня свадьба 🤍";
   }
 }
 setInterval(countdown,1000);
