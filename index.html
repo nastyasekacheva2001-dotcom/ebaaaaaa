@@ -4,266 +4,79 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Свадебное приглашение</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
 <style>
-body{
-  margin:0;
-  font-family: Georgia, serif;
-  background:#f3efe6;
-  color:#2f3e34;
-}
-
-section{
-  padding:60px 20px;
-  text-align:center;
-}
-
-.names{
-  font-family:'Great Vibes', cursive;
-  font-size:56px;
-  color:#2f4f3e;
-}
-
-.date-main{
-  font-size:32px;
-  margin-bottom:30px;
-}
-
-.hero-photo img{
-  width:320px;
-  height:320px;
-  object-fit:cover;
-  border-radius:12px;
-  box-shadow:0 12px 30px rgba(0,0,0,0.25);
-}
-
-button{
-  padding:12px 28px;
-  border:none;
-  border-radius:30px;
-  background:#6b8f7d;
-  color:white;
-  font-size:16px;
-}
-
-.calendar-box{
-  background:rgba(255,255,255,0.65);
-  padding:24px;
-  border-radius:24px;
-  max-width:380px;
-  margin:auto;
-}
-
-.calendar-grid{
-  display:grid;
-  grid-template-columns:repeat(7,1fr);
-  gap:10px;
-  margin-top:15px;
-}
-
-.calendar-heart svg{
-  width:72px;
-  height:66px;
-}
-
-.calendar-heart path{
-  fill:#b14b4b;
-}
-
-.calendar-heart text{
-  fill:white;
-  font-size:28px;
-  font-weight:bold;
-  text-anchor:middle;
-  dominant-baseline:middle;
-}
-
-.map-container iframe{
-  width:100%;
-  max-width:600px;
-  height:320px;
-  border:0;
-  border-radius:18px;
-}
-
-.timing-list{
-  max-width:420px;
-  margin:auto;
-  text-align:left;
-}
-
-.palette{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-}
-
-.color{
-  width:36px;
-  height:36px;
-  border-radius:50%;
-}
-
-.countdown{
-  font-size:28px;
-  font-weight:bold;
-}
-
-#hearts{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-}
+body{margin:0;font-family:Georgia, serif;background:#f3efe6;color:#2f3e34;}
+section{padding:60px 20px;text-align:center;}
+.names{font-family:'Great Vibes', cursive;font-size:56px;color:#2f4f3e;}
+.date-main{font-size:32px;margin-bottom:30px;}
+.hero-photo img{width:320px;height:320px;object-fit:cover;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.25);}
+button{padding:12px 28px;border:none;border-radius:30px;background:#6b8f7d;color:white;font-size:16px;}
+.calendar-box{background:rgba(255,255,255,0.65);padding:24px;border-radius:24px;max-width:380px;margin:auto;}
+.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:15px;}
+.calendar-heart svg{width:72px;height:66px;}
+.calendar-heart path{fill:#b14b4b;}
+.calendar-heart text{fill:white;font-size:28px;font-weight:bold;text-anchor:middle;dominant-baseline:middle;}
+.map-container iframe{width:100%;max-width:600px;height:320px;border:0;border-radius:18px;}
+.timing-list{max-width:420px;margin:auto;text-align:left;}
+.palette{display:flex;justify-content:center;gap:16px;}
+.color{width:36px;height:36px;border-radius:50%;}
+.countdown{font-size:28px;font-weight:bold;}
+#hearts{position:fixed;inset:0;pointer-events:none;}
 </style>
-</head><body>
-
+</head>
+<body>
 <div id="hearts"></div>
-
 <section>
-  <h1 class="names">Никита & Анна</h1>
-  <div class="date-main">8 августа 2026</div>
-
-  <div class="hero-photo">
-    <img src="photo.jpg" alt="Фото">
-  </div>
-
-  <p style="font-size:18px;line-height:1.6;">
-    С огромной радостью приглашаем вас разделить с нами  
-    один из самых тёплых и счастливых дней нашей жизни 🤍
-  </p>
-
-  <!-- КНОПКА МУЗЫКИ -->
-  <button onclick="playMusic()">Включить музыку ♫</button>
+<h1 class="names">Анна & Дмитрий</h1>
+<div class="date-main">8 августа 2026</div>
+<div class="hero-photo"><img src="photo.jpg" alt="Фото"></div>
+<p style="font-size:18px;line-height:1.6;">С огромной радостью приглашаем вас разделить с нами один из самых тёплых и счастливых дней нашей жизни 🤍</p>
+<button onclick="playMusic()">Включить музыку ♫</button>
 </section>
-
 <section>
-  <h2>Август 2026</h2>
-  <div class="calendar-box">
-    <div class="calendar-grid">
-      <div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
-      <div></div><div></div><div></div><div></div><div></div>
-      <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
-
-      <div class="calendar-heart">
-        <svg viewBox="0 0 100 90">
-          <path d="M50 80 L10 40 A20 20 0 0 1 50 20 A20 20 0 0 1 90 40 Z"/>
-          <text x="50" y="50">8</text>
-        </svg>
-      </div>
-
-      <div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
-      <div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div>
-      <div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
-      <div>30</div><div>31</div>
-    </div>
-  </div>
+<h2>Август 2026</h2>
+<div class="calendar-box">
+<div class="calendar-grid">
+<div>Пн</div><div>Вт</div><div>Ср</div><div>Чт</div><div>Пт</div><div>Сб</div><div>Вс</div>
+<div></div><div></div><div></div><div></div><div></div>
+<div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div>
+<div class="calendar-heart"><svg viewBox="0 0 100 90"><path d="M50 80 L10 40 A20 20 0 0 1 50 20 A20 20 0 0 1 90 40 Z"/><text x="50" y="50">8</text></svg></div>
+<div>9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+<div>16</div><div>17</div><div>18</div><div>19</div><div>20</div><div>21</div><div>22</div>
+<div>23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
+<div>30</div><div>31</div>
+</div>
+</div>
 </section>
-
 <section>
-  <h2>Место проведения</h2>
-  <p>
-    Волгоградская область, г. Михайловка, ул. Ким, д.2  
-    <br>Ресторан «Wedding Hall»
-  </p>
-  <p><strong>Пожалуйста, приезжайте заранее 🤍</strong></p>
-
-  <div class="map-container">
-    <iframe
-      src="https://yandex.ru/map-widget/v1/?ll=43.2406%2C50.0702&z=16&mode=search&text=Wedding%20Hall%20Михайловка"
-      allowfullscreen>
-    </iframe>
-  </div>
+<h2>Место проведения</h2>
+<p>Волгоградская область, г. Михайловка, ул. Ким, д.2<br>Ресторан «Wedding Hall»</p>
+<p><strong>Пожалуйста, приезжайте заранее 🤍</strong></p>
+<div class="map-container">
+<iframe src="https://yandex.ru/map-widget/v1/?ll=43.2406%2C50.0702&z=16&mode=search&text=Wedding%20Hall%20Михайловка" allowfullscreen></iframe>
+</div>
 </section>
-
 <section>
-  <h2>Тайминг вечера</h2>
-  <div class="timing-list">
-    <p><strong>17:00</strong> — Сбор гостей</p>
-    <p><strong>18:00</strong> — Церемония</p>
-    <p><strong>19:00</strong> — Праздничный ужин</p>
-    <p><strong>20:30</strong> — Тосты и развлечения</p>
-    <p><strong>22:00</strong> — Танцы</p>
-  </div>
+<h2>Тайминг вечера</h2>
+<div class="timing-list">
+<p><strong>17:00</strong> — Сбор гостей</p>
+<p><strong>18:00</strong> — Церемония</p>
+<p><strong>19:00</strong> — Праздничный ужин</p>
+<p><strong>20:30</strong> — Тосты и развлечения</p>
+<p><strong>22:00</strong> — Танцы</p>
+</div>
 </section>
-
 <section>
-  <h2>До свадьбы осталось</h2>
-  <div class="countdown" id="timer"></div>
+<h2>До свадьбы осталось</h2>
+<div class="countdown" id="timer"></div>
 </section>
-
-<audio id="music" src="music.mp3" preload="auto"></audio><script>
-/* ===== МУЗЫКА ===== */
-function playMusic() {
-  const music = document.getElementById("music");
-  if (music) {
-    music.play().catch(() => {
-      alert("Нажмите кнопку ещё раз для запуска музыки 🎵");
-    });
-  }
-}
-
-/* ===== ОБРАТНЫЙ ОТСЧЁТ ===== */
-function startCountdown() {
-  const timer = document.getElementById("timer");
-  if (!timer) return;
-
-  function update() {
-    const now = new Date();
-    const wedding = new Date("2026-08-08T00:00:00");
-    const diff = wedding - now;
-
-    if (diff <= 0) {
-      timer.textContent = "Сегодня свадьба 🤍";
-      return;
-    }
-
-    const d = Math.floor(diff / 86400000);
-    const h = Math.floor((diff % 86400000) / 3600000);
-    const m = Math.floor((diff % 3600000) / 60000);
-    const s = Math.floor((diff % 60000) / 1000);
-
-    timer.textContent = ${d} дней ${h} ч ${m} м ${s} с;
-  }
-
-  update();
-  setInterval(update, 1000);
-}
-
-/* ===== ПЛАВАЮЩИЕ СЕРДЕЧКИ ===== */
-function startHearts() {
-  const container = document.getElementById("hearts");
-  if (!container) return;
-
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.textContent = "♥";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.bottom = "-20px";
-    heart.style.fontSize = 14 + Math.random() * 18 + "px";
-    heart.style.color = "#b14b4b";
-    heart.style.opacity = "0.8";
-    heart.style.transition = "transform 6s linear, opacity 6s";
-
-    container.appendChild(heart);
-
-    setTimeout(() => {
-      heart.style.transform = "translateY(-120vh)";
-      heart.style.opacity = "0";
-    }, 50);
-
-    setTimeout(() => heart.remove(), 6000);
-  }, 500);
-}
-
-/* ===== ЗАПУСК ПОСЛЕ ЗАГРУЗКИ ===== */
-window.addEventListener("load", () => {
-  startCountdown();
-  startHearts();
-});
+<audio id="music" src="music.mp3" preload="auto"></audio>
+<script>
+function playMusic(){const music=document.getElementById("music");if(music){music.play().catch(()=>{alert("Нажмите кнопку ещё раз для запуска музыки 🎵");});}}
+function startCountdown(){const timer=document.getElementById("timer");if(!timer)return;function update(){const now=new Date();const wedding=new Date("2026-08-08T00:00:00");const diff=wedding-now;if(diff<=0){timer.textContent="Сегодня свадьба 🤍";return;}const d=Math.floor(diff/86400000);const h=Math.floor((diff%86400000)/3600000);const m=Math.floor((diff%3600000)/60000);const s=Math.floor((diff%60000)/1000);timer.textContent=`${d} дней ${h} ч ${m} м ${s} с`;}update();setInterval(update,1000);}
+function startHearts(){const container=document.getElementById("hearts");if(!container)return;setInterval(()=>{const heart=document.createElement("div");heart.textContent="♥";heart.style.position="fixed";heart.style.left=Math.random()*100+"vw";heart.style.bottom="-20px";heart.style.fontSize=14+Math.random()*18+"px";heart.style.color="#b14b4b";heart.style.opacity="0.8";heart.style.transition="transform 6s linear, opacity 6s";container.appendChild(heart);setTimeout(()=>{heart.style.transform="translateY(-120vh)";heart.style.opacity="0";},50);setTimeout(()=>heart.remove(),6000);},500);}
+window.addEventListener("load",()=>{startCountdown();startHearts();});
 </script>
-
 </body>
 </html>
