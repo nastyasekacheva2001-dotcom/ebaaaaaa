@@ -152,7 +152,7 @@ button{
     один из самых тёплых и счастливых дней нашей жизни 🤍
   </p>
 
-  <button id="musicBtn">Включить музыку ♫</button>
+  <button onclick="playMusic()">Включить музыку ♫</button>
 </section>
 
 <section>
@@ -224,15 +224,13 @@ button{
 </section>
 
 <audio id="music" src="music.mp3" loop></audio><script>
-let play=false;
-const musicBtn=document.getElementById("musicBtn");
-const music=document.getElementById("music");
+<script>
+const music = document.getElementById("music");
 
-musicBtn.onclick=()=>{
-  play ? music.pause() : music.play();
-  play=!play;
-};
-
+function playMusic(){
+  music.play();
+}
+</script>
 setInterval(()=>{
   const h=document.createElement("div");
   h.className="heart-float";
@@ -265,3 +263,4 @@ countdown();
 
 </body>
 </html>
+
