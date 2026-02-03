@@ -180,29 +180,22 @@ function toggleMusic(){
  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
 (function(){
-  emailjs.init("CVZMXUwQCMD_3XjU");
+  emailjs.init("-CVZMXUwQCMD_3XjU");
 })();
 
 document.getElementById("surveyForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  const form = this;
-  const result = document.getElementById("result");
-
   emailjs.sendForm(
     "service_07pnsfd",
-    "template_m177ixiD",
-    form
+    "template_m177ixi",
+    this
   ).then(
-    () => {
-      result.textContent = "Спасибо! Ответ отправлен 🤍";
-      form.reset();
-    },
-    () => {
-      result.textContent = "Ошибка отправки 😢";
-    }
+    () => alert("Отправлено 🤍"),
+    (error) => alert("Ошибка: " + error.text)
   );
 });
 </script>
+
 </body>
 </html>
