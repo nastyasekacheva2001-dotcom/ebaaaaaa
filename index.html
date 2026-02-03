@@ -177,10 +177,10 @@ function toggleMusic(){
   else music.pause();
 }
 </script>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+ <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
 (function(){
-  emailjs.init("-CVZMXUwQCMD_3XjU");
+  emailjs.init("CVZMXUwQCMD_3XjU");
 })();
 
 document.getElementById("surveyForm").addEventListener("submit", function(e){
@@ -191,7 +191,7 @@ document.getElementById("surveyForm").addEventListener("submit", function(e){
 
   emailjs.sendForm(
     "service_07pnsfd",
-    "template_m177ixi",
+    "template_m177ixiD",
     form
   ).then(
     () => {
