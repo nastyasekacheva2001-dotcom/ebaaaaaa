@@ -98,36 +98,25 @@ button{padding:12px 28px;border:none;border-radius:30px;background:#6b8f7d;color
 
   <section id="survey">
   <h2>Опрос для гостей</h2>
-  <p style="font-size:18px;line-height:1.6;">
-    Пожалуйста, ответьте на несколько вопросов — нам будет очень приятно 🤍
-  </p>
 
-  <form>
-    <p>
-      <strong>Ваше имя:</strong><br>
-      <input type="text" placeholder="Введите имя" required
-        style="padding:10px;width:80%;max-width:300px;">
-    </p>
+  <form id="surveyForm">
+    <input type="text" name="name" placeholder="Ваше имя" required><br><br>
 
-    <p>
-      <strong>Сможете ли вы присутствовать?</strong><br>
-      <label><input type="radio" name="attendance"> Да, с радостью</label><br>
-      <label><input type="radio" name="attendance"> К сожалению, не смогу</label>
-    </p>
+    <label>
+      <input type="radio" name="attendance" value="Приду" required> Приду
+    </label><br>
+    <label>
+      <input type="radio" name="attendance" value="Не смогу"> Не смогу
+    </label><br><br>
 
-    <p>
-      <strong>Предпочтения по напиткам:</strong><br>
-      <label><input type="checkbox"> Вино/Шампанское</label><br>
-      <label><input type="checkbox"> Крепкий алкоголь</label><br>
-      <label><input type="checkbox"> Безалкогольные</label>
-    </p>
+    <label><input type="checkbox" name="drinks" value="Вино"> Вино</label><br>
+    <label><input type="checkbox" name="drinks" value="Шампанское"> Шампанское</label><br>
+    <label><input type="checkbox" name="drinks" value="Безалкогольные"> Безалкогольные</label><br><br>
 
-    <p>
-      <strong>Комментарий или пожелание:</strong><br>
-      <textarea rows="4" style="width:80%;max-width:320px;"></textarea>
-    </p>
+    <textarea name="comment" placeholder="Комментарий"></textarea><br><br>
 
     <button type="submit">Отправить 🤍</button>
+    <p id="result"></p>
   </form>
 </section>
   
@@ -187,6 +176,33 @@ function toggleMusic(){
   if(music.paused) music.play();
   else music.pause();
 }
+</script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("-CVZMXUwQCMD_3XjU");
+})();
+
+document.getElementById("surveyForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const form = this;
+  const result = document.getElementById("result");
+
+  emailjs.sendForm(
+    "service_07pnsfd",
+    "template_m177ixi",
+    form
+  ).then(
+    () => {
+      result.textContent = "Спасибо! Ответ отправлен 🤍";
+      form.reset();
+    },
+    () => {
+      result.textContent = "Ошибка отправки 😢";
+    }
+  );
+});
 </script>
 </body>
 </html>
